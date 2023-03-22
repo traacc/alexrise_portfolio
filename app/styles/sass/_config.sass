@@ -1,0 +1,205 @@
+// USER VARIABLES SECTION
+
+$accent: #BDAE82 // Accent Color
+$fontsize: 20px // Body Font Size
+$textcolor: #fff // Text Color
+$lineheight: 2 // Document Line Height
+$userfont: inter, sans-serif // User Font Family
+$systemfont: -apple-system, BlinkMacSystemFont, Arial, sans-serif // System Font Family
+
+// Bootstrap compatible gutter variable => $gutter
+$grid-gutter-width: 30px
+$gutter: $grid-gutter-width
+
+// IMPORT SECTION
+@import '../normalize'
+// @import 'node_modules/bootstrap/scss/bootstrap-reboot.scss' // Bootstrap Reboot collection
+// @import 'node_modules/bootstrap/scss/mixins/_breakpoints.scss' // Bootstrap Breakpoints mixin
+// @import 'node_modules/bootstrap/scss/bootstrap-grid.scss' // Optional Bootstrap Grid
+// @import 'node_modules/bootstrap/scss/_utilities.scss' // Optional Bootstrap Utilites
+
+// FONTS LOAD SECTION
+
+@mixin font($fname, $fstyle, $fweight, $furl)
+	@font-face
+		font-family: $fname
+		font-style: $fstyle
+		font-weight: $fweight
+		src: url($furl) format('truetype')
+
+@include font('inter', normal, 400, '../fonts/Inter-Regular.ttf')
+@include font('inter', normal, 700, '../fonts/Inter-Bold.ttf')
+@include font('merriweather', normal, 700, '../fonts/Merriweather-Bold.ttf')
+
+// GENERAL CSS SETTINGS
+
+*,
+*::before,
+*::after 
+	box-sizing: border-box
+
+::root
+
+::placeholder
+	font-family: inherit
+	color: #bdae82
+	font-size: 20px
+
+::selection
+	background-color: $accent
+	color: #fff
+
+input, textarea
+	outline: none
+	&:focus:required:invalid
+		border-color: red
+	&:required:valid
+		border-color: green
+
+html
+	font-size: $fontsize
+	scroll-behavior: smooth
+
+body
+	font-family: $userfont
+	font-size: $fontsize
+	line-height: $lineheight
+	background-color: #000
+	color: $textcolor
+	min-width: 320px
+	position: relative
+	overflow-x: hidden
+
+.container
+	max-width: 1440px
+	margin: 0 auto
+	padding: 0 20px
+
+.header
+	background: url('../img/bg.jpg')
+	background-repeat: no-repeat
+	background-position: center 0
+
+.hero
+	background-image: url('../img/bg.jpg')
+	background-position: center -83px
+	background-repeat: no-repeat
+
+h1,h2,h3,h4,h5
+	font-family: merriweather
+	font-weight: 700
+
+h1
+	font-size: 3rem
+	
+ul,ol,li
+	margin: 0
+h2
+	font-size: 2rem
+	//background-image: linear-gradient(to top, #000 39px, #bdae82 39px, #bdae82 41px, #000 41px)
+	position: relative
+	padding: 0.5em
+	//background-color: #000
+	text-align: center
+	color: $accent
+
+	
+	z-index: 1
+	
+	&::before
+		content: ''
+
+		position: absolute
+
+		height: 100px
+		width: 153px
+		top: 25%
+		background-color: #000
+		z-index: -1
+		left: 44.5%
+	&::after
+		content: ''
+
+		position: absolute
+		overflow-x: hidden
+		height: 2px
+		width: 700px
+		top: 49%
+		left: 25%
+		background-color: $accent
+		z-index: -2
+.flex_break
+	display: none
+.btn
+	position: relative
+	border: none
+	background-color: $accent
+	width: 220px
+	height: 55px
+	text-align: center
+	padding: 0
+	transition: color .3s ease-out
+	overflow: hidden
+	&--black
+		background-color: #000
+		color: $accent
+		border: 2px solid $accent
+	&:hover
+		color: #fff
+	&:focus
+		outline: none
+
+
+.menu_overlay
+	display: none
+	position: fixed
+	top: 0
+	left: 0
+	width: 100vw
+	height: 100vh
+	z-index: 3
+	&.active
+		display: block
+		background-color: rgba(0, 0, 0, .5)
+
+.light-theme
+	background-color: #fff
+	color: #000
+	h2
+		color: #000
+		&::before
+			background-color: #fff
+		&::after
+			background-color: #000	
+	.portfolio
+		.btn
+			&:hover
+				color: #fff
+		.btn--black
+			background-color: #fff
+			//color: #000
+			&:hover
+				color: #000
+	.header__inner
+		.header__nav
+			.nav__switch
+				background-image: url('../img/light.svg')
+.no-light
+	background-color: #000
+	color: #fff
+
+button .circle 
+	position: absolute
+	background-color: #fff
+	width: 100px
+	height: 100px
+	border-radius: 50%
+	transform: translate(-50%, -50%) scale(0)
+	animation: scale 0.5s ease-out
+
+
+@keyframes scale 
+	to 
+		transform: translate(-50%, -50%) scale(3)
+		opacity: 0
+  

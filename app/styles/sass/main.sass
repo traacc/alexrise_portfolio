@@ -1,0 +1,594 @@
+@use 'sass:math'
+@use 'sass:color'
+
+@import config
+@import 'blocks/**/*'
+
+.header__inner
+	display: flex
+	justify-content: space-between
+	//align-items: center
+	padding-top: 1em
+	padding-right: 1.6em
+	.header__logo
+		width: 50px
+		height: 63px
+		background-image: url('../img/logo.svg')
+		background-repeat: no-repeat
+		&:hover
+			transition: filter .2s ease-in-out
+			filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%)
+
+	.header__nav
+		display: flex
+		justify-content: space-between
+		padding-top: 5px
+		padding-right: 12px
+		
+		.nav__list
+			display: flex
+
+			list-style: none
+			padding: 0
+			
+			.nav__item
+				
+				padding-right: 30px
+				a
+					text-decoration: none
+					color: #fff
+					transition: color .2s ease-out
+					&:hover
+						color: $accent
+		.nav__switch
+			background-image: url('../img/dark.svg')
+			background-size: 100%
+			width: 31px
+			margin-left: 12px
+			margin-top: 3px
+			//height: 21px
+			background-repeat: no-repeat
+			cursor: pointer
+			&:hover
+				transition: filter .2s ease-in-out
+				filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%)
+			.light
+				background-image: url('../img/sun.svg')
+		.header__langs
+			font-weight: 700
+			//padding-left: 3px
+			.active
+				color: $accent
+			.header__langs--en:not(.active):hover, .header__langs--ru:not(.active):hover
+				transition: color .2s ease-out
+				color: lighten($accent, 5%)
+.hero__inner
+	padding-top: 9.9em
+	margin-right: 43em
+	margin-left: 3em
+	padding-bottom: 16.4em
+	h1
+		padding-bottom: 0.31em
+		margin: 0
+		line-height: 1
+	.hero__desc
+		padding-bottom: 0.3em
+	
+.skills
+	h2
+		margin-top: 2.05em
+		padding-bottom: 0.5em
+	.skills__list
+		padding-top: 0.25em
+		padding-left: 0.96em
+		display: flex
+		text-align: center
+		justify-content: space-between
+		padding-bottom: 2em
+		padding-right: 1em
+		.skills__item
+			//margin-right: 40px
+
+			.icon
+				background-position: center top
+				height: 50px
+				margin-bottom: 2.55em
+				margin-left: 5.56em
+
+			h3
+				font-family: inter, sans-serif
+				font-size: 1rem
+			.skills__desc
+				font-size: 18px
+				max-width: 280px
+				font-weight: 400
+		.skills__item:nth-child(1)
+			.icon
+				background-image: url('../img/camera.svg')
+				width: 62px
+		.skills__item:nth-child(2)
+			.icon
+				background-image: url('../img/video.svg')
+				width: 60px
+		.skills__item:nth-child(3)
+			.icon
+				background-image: url('../img/image.svg')
+				width: 66px
+		.skills__item:nth-child(4)
+			.icon
+				background-image: url('../img/mic.svg')
+				margin-left: 6.3em
+				width: 32px
+			
+
+.portfolio
+	h2
+		margin-bottom: 1em
+		&::before
+			content: ''
+
+
+			width: 220px
+			top: 25%
+			left: 42%
+	.portfolio__season
+		text-align: center
+		margin-bottom: 3em
+	.portfolio__list
+		display: flex
+		flex-wrap: wrap
+		gap: 25px
+		margin-bottom: 4.1em
+		.portfolio__item
+			margin-bottom: -14px
+
+
+.video
+	h2
+		&::before
+			content: ''
+
+			width: 156px
+	.video__inner
+		position: relative
+		display: flex
+		justify-content: center
+		align-items: center
+		margin-top: 2em
+		margin-bottom: 4em
+		.video__play
+			position: absolute
+
+.price__list
+	display: flex
+	justify-content: space-between
+	padding-top: 0.3em
+	margin-bottom: 5em
+	.price__item
+		
+		
+		border: 2px solid $accent
+		text-align: center
+		min-width: 450px
+		.price__name
+			font-size: 28px
+			padding-top: 0.5em
+			margin-bottom: 0.74em
+		.price__price
+			font-family: merriweather
+			font-size: 24px
+			font-weight: 700
+			color: $accent
+			margin-bottom: 0.8em
+		.price__info
+			font-size: 18px
+			margin-bottom: 0
+			margin-top: 0
+		.btn
+			margin-top: 2em
+			margin-bottom: 2em
+
+
+.contacts
+	//$contacts_input_width: 22.5em
+	.container
+		background: url('../img/bg_contacts.jpg')
+		background-size: auto 700px
+		background-position: center center
+	.contacts__inner
+		h2
+			&::before
+				display: none
+			&::after
+				display: none
+			margin: 0
+			padding: 1.55em 0 1em 0
+			text-align: left
+			color: $accent
+		margin-left: 47.5em
+		.contacts__form
+			
+			input
+				display: block
+			input[type="email"], input[type="tel"], textarea
+				background-color: rgba(0, 0, 0, .5)
+				color: $accent
+				height: 2.4em
+				width: 22.5em
+				margin-bottom: 1.1em
+				border: 2px solid $accent
+			input[type="email"], input[type="tel"]
+				padding-left: 0.9em
+			textarea
+				resize: none
+				height: 5em
+
+				padding-left: 0.9em
+				padding-top: 0.5em
+
+				margin-bottom: 0.8em
+			
+			padding-bottom: 9.7em
+
+.footer__inner
+	display: flex
+	justify-content: space-between
+	//align-items: center
+	padding-top: 2.74em
+	padding-bottom: 2.6em
+	.footer__copyright
+		word-spacing: 0.8em
+		a
+			color: #fff
+			text-decoration: none
+			&:hover
+				text-decoration: underline
+	.footer__school
+		padding-left: 2.7em
+		a
+			color: #fff
+			text-decoration: none
+			&:hover
+				text-decoration: underline
+	.footer__social
+		flex-basis: 11.4em
+		margin-top: 0.3em
+		display: flex
+		justify-content: space-between
+		li
+			//display: inline-block
+			list-style: none
+			
+			
+			
+			
+			.social__icon
+				height: 32px
+				width: 32px
+				background-repeat: none
+				&:hover
+					transition: filter .2s ease-in-out
+					filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%)
+			&:nth-child(1)
+				.social__icon
+					background-image: url('../img/inst.svg')
+			&:nth-child(2)
+				.social__icon
+					background-image: url('../img/fb.svg')
+			&:nth-child(3)
+				.social__icon
+					background-image: url('../img/tw.svg')
+			&:nth-child(4)
+				.social__icon
+					background-image: url('../img/pinterest.svg')
+@media screen and ( max-width: 1440px)
+	h2
+		&::before
+			left: 43.1%
+		&::after
+			width: 590px
+	.portfolio
+		h2
+			&::before
+				left: 40.6%
+			
+	.container
+		max-width: 1200px
+	.hero__inner
+		margin-right: 34em
+	.price__list
+		.price__item
+			min-width: 375px
+	
+	.portfolio__list
+		justify-content: center
+	.video
+		.video__inner
+			.video__contaier
+				width: 768px
+	.contacts
+		.contacts__inner
+			margin-left: 35.5em
+			.contacts__form
+				input[type="email"], input[type="tel"], textarea
+					//width: 100%
+@media screen and ( max-width: 1200px)
+	h2
+		&::before
+			left: 41.5%
+		&::after
+			width: 450px
+	.portfolio
+		h2
+			&::before
+				left: 37.9%
+	.container
+		max-width: 960px
+	.header-container
+		background-image: none
+	.hero-container
+		background-image: none
+	.header
+		background: url('../img/bg.jpg')
+		background-repeat: no-repeat
+		background-position: center 0
+	.hero
+		background-image: url('../img/bg.jpg')
+		background-position: center -83px
+		background-repeat: no-repeat
+	.hero__inner
+		margin-right: 23em
+
+	.skills .skills__list .skills__item .icon
+		margin-left: 3.86em
+	.skills .skills__list .skills__item:nth-child(4) .icon
+		margin-left: 4.7em
+	.price__list
+		.price__item
+			min-width: 300px
+	.contacts
+		.contacts__inner
+			margin-left: 23.5em
+@media screen and ( max-width: 968px)
+	.container
+		max-width: 768px
+		//margin: 0 64px
+	.flex_break
+		display: block
+		flex-basis: 100%
+		height: 0
+	h1
+		font-size: 1.6rem
+		font-weight: 400
+	h2
+		font-size: 1.6rem
+		&::after
+			width: 354px
+		&::before
+			left: 41.1%
+			width: 132px
+
+	.hero__inner
+		padding-top: 5em
+		margin-right: 15em
+		margin-left: 2em
+		padding-bottom: 7.6em
+		h1
+			padding-bottom: 0.52em
+		.hero__desc
+			line-height: 1.21
+			padding-bottom: 1.96em
+	.skills
+		h2
+			margin-top: 2.25em
+			margin-bottom: 0.8em
+		.skills__list
+			flex-wrap: wrap
+			padding-left: 0.56em
+			justify-content: space-around
+			
+			.skills__item
+				&:nth-child(4)
+					.icon
+						padding-left: 56px
+						margin-left: 5.6em
+				padding-bottom: 3em
+				.icon
+					margin-left: 5.56em
+					margin-bottom: 1.55em
+					background-repeat: no-repeat
+				.skills__title
+					//margin-bottom: 0.1em
+				.skills__desc
+					line-height: 1.21
+
+	.portfolio
+		h2
+			margin-bottom: 1.3em
+			&::before
+				left: 37.4%
+				width: 185px
+		.portfolio__season
+			display: flex
+			flex-wrap: wrap
+			justify-content: center
+			gap: 3px
+			.season__btn
+				padding-bottom: 0
+				
+	.video
+		.video__contaier
+			width: 768px
+
+	.price
+		h2
+			margin-bottom: 1.15em
+		.price__list
+			flex-wrap: wrap
+			justify-content: center
+			.price__item
+				min-width: 420px
+				margin-bottom: 2.5em
+			margin-bottom: 0em
+
+	.contacts
+		background: url('../img/bg_contacts.jpg')
+		background-size: auto 700px
+		background-position: 30% center
+		.container
+			background-image: none
+		.contacts__inner
+			
+			h2
+				text-align: center
+				margin-top: 1.25em
+				padding-bottom: 1.3em
+				
+			.contacts__form
+
+				display: flex
+				flex-wrap: wrap
+				justify-content: center
+				padding-bottom: 5.5em
+				textarea
+					display: block
+					margin-bottom: 1.5em
+		.contacts__inner
+			margin-left: 0
+	.footer
+		.footer__inner
+			flex-wrap: wrap
+			justify-content: center
+			padding-top: 1em
+			.footer__school
+				padding-left: 0em
+			.footer__social
+				margin-top: 1.1em
+				margin-right: 2em
+
+@media screen and ( max-width: 768px)
+	h2
+		
+		&::after
+			width: 0
+		&::before
+			left: 0
+			width: 0
+	.header__inner
+		.header__nav
+			.nav__list
+				display: block
+				position: fixed
+				left: 100vw
+				transition: .8s left ease-out
+				background-color: #000
+				height: 100vh
+				padding-right: 100vw
+				z-index: 4
+				top: 0
+				padding-top: 4.5em
+				.nav__item
+					padding-left: 2em
+					padding-bottom: 1em
+				&.show_menu
+					left: 50vw
+	.video
+		.video__inner
+			.video__contaier
+				width: 100%
+	.nav__button
+		width: 50px
+		height: 28px
+		position: relative
+		margin: 50 auto
+		cursor: pointer
+		z-index: 4
+		margin-top: 6px
+		margin-right: 32px
+		margin-left: 37px
+		span
+			display: block
+			position: absolute
+			height: 3px
+			width: 100%
+			background: $accent
+			opacity: 1
+			left: 0
+			transform: rotate(0deg)
+			transition: .25s ease-out
+			transform-origin: left center
+			&:nth-child(1)
+				top: 0px
+			&:nth-child(2)
+				top: 12px
+			&:nth-child(3)
+				top: 25px
+			&:nth-child(1).open
+				transform: rotate(45deg)
+				top: 2px
+				left: 8px
+			&:nth-child(2).open
+				width: 0px
+				opacity: 0
+			&:nth-child(3).open
+				transform: rotate(-45deg)
+				top: 39px
+				left: 8px
+
+@media screen and ( max-width: 576px)
+	.container
+		max-width: 100%
+	h2
+		
+		&::after
+			width: 0
+		&::before
+			left: 0
+			width: 0
+	.header
+		//font-size: 17px
+		.header__logo
+			//width: 50px
+			margin-left: 0
+			//height: 63px
+		.header__nav
+			.nav__list
+				.nav__item
+					padding-left: 2em
+					padding-bottom: 1em
+				&.show_menu
+					left: 0vw
+	.hero
+		.hero__inner
+			margin-right: 2em
+	.skills
+		h2
+			padding-left: 30px
+	.portfolio
+		img
+			width: 100%
+	.price
+		.price__list
+			.price__item
+				min-width: 100%
+
+	.contacts
+		background-position: 20% center
+		.contacts__inner
+			margin-left: 0
+			.contacts__form
+				input[type="email"], input[type="tel"], textarea
+					width: 100%
+
+@media screen and ( max-width: 967px)
+	.header
+		background: url('../img/bg.jpg')
+		background-position: 0px -19px
+		background-repeat: no-repeat
+		background-size: 48em 30em
+
+	.hero
+		background: url('../img/bg.jpg')
+		background-position: 0px -102px
+		background-repeat: no-repeat
+		background-size: 48em 30em
